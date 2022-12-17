@@ -1,9 +1,8 @@
 #include <iostream>
-#include "Money/PLN.h"
-#include "Exchangers/PLNExchange.h"
-#include "Exchangers/DollarsExchange.h"
-#include "Exchangers/EuroExchange.h"
 #include "Exchange.h"
+#include "src/Exchangers/PLNExchange.h"
+#include "src/Exchangers/EuroExchange.h"
+#include "src/Exchangers/DollarsExchange.h"
 #include <limits>
 
 int main() {

@@ -8,6 +8,7 @@
 
 #include "Currency.h"
 #include "../Money/USD.h"
+#include "../Money/PLN.h"
 #include <iostream>
 #include <sstream>
 // waluty też mogą być obiektami
@@ -17,7 +18,7 @@ class EuroExchange: public Currency {
 public:
     std::string info() override {
         std::ostringstream oss;
-        oss << "Możesz wymienić PLN na Euro za: " << fromPLNtoEuro << ", USD na Euro za: "<< fromUSDtoEuro;
+        oss << "You can exchange from PLN to EUR: " << fromPLNtoEuro << ", and from USD to EUR: "<< fromUSDtoEuro;
         return oss.str();
     }
 

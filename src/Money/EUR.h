@@ -5,7 +5,7 @@
 #ifndef OOP1___KANTOR_WALUT_EUR_H
 #define OOP1___KANTOR_WALUT_EUR_H
 
-#include "../Value.h"
+#include "../../Value.h"
 
 class EUR: public Value {
 public:

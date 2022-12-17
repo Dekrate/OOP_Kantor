@@ -6,7 +6,7 @@
 #define OOP1___KANTOR_WALUT_USD_H
 
 #include "../Exchangers/Currency.h"
-#include "../Value.h"
+#include "../../Value.h"
 
 class USD: public Value {
 public:

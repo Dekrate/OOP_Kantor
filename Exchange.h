@@ -5,11 +5,10 @@
 #include <utility>
 #include <vector>
 #include <memory>
-#include "Exchangers/EuroExchange.h"
-#include "Exchangers/PLNExchange.h"
-#include "Exchangers/DollarsExchange.h"
-#include "Money/USD.h"
-#include "Money/EUR.h"
+#include "src/Exchangers/EuroExchange.h"
+#include "src/Exchangers/PLNExchange.h"
+#include "src/Exchangers/DollarsExchange.h"
+#include "src/Money/PLN.h"
 
 #ifndef OOP1___KANTOR_WALUT_EXCHANGE_H
 #define OOP1_KANTOR_WALUT_EXCHANGE_H

@@ -6,7 +6,7 @@
 #define OOP1___KANTOR_WALUT_PLN_H
 
 
-#include "../Value.h"
+#include "../../Value.h"
 
 class PLN: public Value {
 public:
