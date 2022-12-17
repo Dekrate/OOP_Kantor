@@ -25,110 +25,108 @@ public:
 
 public:
     void enterExchange() {
-        std::cout << "Witaj w kantorze!\n";
-        std::cout << "Aktualnie obslugujemy trzy rodzaje walut, naszym skromnym zdaniem najpopularniejsze!\n";
-        std::cout << "To Euro - bo wiadomo, mozna zaszpanowac, ze jest sie swiatowym\n";
-        std::cout << "Nastepnie nasze ukochane, rodzime zlotoweczki.\n";
-        std::cout << "A na sam koniec - dolary! Az przypominaja sie czasy PeWeXow!\n";
-        std::cout << "Na poczatek, wybierz walute, na ktorej bedziesz chcial dokonac wymiany:\n";
+        std::cout << "Welcome to our exchange!\n";
+        std::cout << "Currently, we supports three currencies!\n";
+        std::cout << "It's Euro, dollars and Polish zloty.\n";
+        std::cout << "Choose a currency, which you would like to exchange to:\n";
         std::cout << "1. PLN, 2. USD, 3. EUR\n";
         int currencyToExchange;
         std::cin >> currencyToExchange;
         double amount;
         switch (currencyToExchange) {
             case 1: {
-                std::cout << "Ile masz zlotoweczek?\n";
+                std::cout << "How much PLN do you have?\n";
                 std::cin >> amount;
                 if (amount <= 0) {
-                    throw std::invalid_argument("Najpierw idz zarobic, a potem pogadamy!");
+                    throw std::invalid_argument("Get outta here and earn some money first!");
                     break;
                 }
                 PLN plnAmount(amount);
-                std::cout << "Swietnie! Mozemy przejsc do rzeczy!\n";
-                std::cout << "Teraz czas na wymiane walut! \n";
-                std::cout << "Mozesz wymienic PLN na 1. EUR, 2. USD\n";
+                std::cout << "Great, we can do business now!!\n";
+                std::cout << "It's time for exchange! \n";
+                std::cout << "You can exchange PLN to: 1. EUR and 2. USD\n";
                 std::cin >> currencyToExchange;
                 switch (currencyToExchange) {
                     case 1: {
                         double newValue = euro.exchangerFromPLNToEUR(plnAmount);
-                        std::cout << "Transakcja pomyslna! Twoje EUR to: " << newValue << std::endl;
-                        std::cout << "Dziekujemy za skorzystanie z naszych uslug!";
+                        std::cout << "Your EUR: " << newValue << std::endl;
+                        std::cout << "Thank you for using our services!";
                         break;
                     }
                     case 2: {
                         double newValue = dollars.exchangerFromPLNtoUSD(plnAmount);
-                        std::cout << "Transakcja pomyslna! Twoje USD to: " << newValue << std::endl;
-                        std::cout << "Dziekujemy za skorzystanie z naszych uslug!";
+                        std::cout << "Your USD: " << newValue << std::endl;
+                        std::cout << "Thank you for using our services!";
                         break;
                     }
                     default: {
-                        throw std::invalid_argument("Nie mamy takiej opcji w naszej ofercie. Zapraszamy innym razem!");
+                        throw std::invalid_argument("We don't have such an option. See you next time!");
                     }
                 }
                 break;
             }
             case 2: {
-                std::cout << "Ile masz dolarow?\n";
+                std::cout << "How much dollars do you have?\n";
                 std::cin >> amount;
                 if (amount <= 0) {
-                    throw std::invalid_argument("Pusto w kieszeniach, co?");
+                    throw std::invalid_argument("Emptily?");
                 }
                 USD usdAmount(amount);
-                std::cout << "Swietnie! Mozemy przejsc do rzeczy!\n";
-                std::cout << "Teraz czas na wymiane walut! \n";
-                std::cout << "Mozesz wymienic USD na 1. PLN, 2. EUR\n";
+                std::cout << "Great, we can do business now!!\n";
+                std::cout << "It's time for exchange! \n";
+                std::cout << "You can exchange USD to 1. PLN, 2. EUR\n";
                 std::cin >> currencyToExchange;
                 switch (currencyToExchange) {
                     case 1: {
                         double newValue = pln.exchangerFromUSDToPLN(usdAmount);
-                        std::cout << "Transakcja pomyslna! Twoje PLN to: " << newValue << std::endl;
-                        std::cout << "Dziekujemy za skorzystanie z naszych uslug!";
+                        std::cout << "Your PLN: " << newValue << std::endl;
+                        std::cout << "Thank you for using our services!";
                         break;
                     }
                     case 2: {
                         double newValue = euro.exchangerFromUSDtoEUR(usdAmount);
-                        std::cout << "Transakcja pomyslna! Twoje EUR to: " << newValue << std::endl;
-                        std::cout << "Dziekujemy za skorzystanie z naszych uslug!";
+                        std::cout << "Your EUR: " << newValue << std::endl;
+                        std::cout << "Thank you for using our services!";
                         break;
                     }
                     default: {
-                        throw std::invalid_argument("Nie mamy takiej opcji w naszej ofercie. Zapraszamy innym razem!");
+                        throw std::invalid_argument("We don't have such a currency. See you next time!");
                     }
                 }
                 break;
             }
             case 3: {
-                std::cout << "Ile masz euro?\n";
+                std::cout << "How much Euro do you have?\n";
                 std::cin >> amount;
                 if (amount <= 0) {
-                    throw std::invalid_argument("Najpierw idz zarobic, a potem pogadamy!");
+                    throw std::invalid_argument("Find a job and then we will talk!");
                 }
                 EUR eurAmount(amount);
-                std::cout << "Swietnie! Mozemy przejsc do rzeczy!\n";
-                std::cout << "Teraz czas na wymiane walut! \n";
-                std::cout << "Mozesz wymienic EUR na 1. PLN, 2. USD\n";
+                std::cout << "Great! We can do business now!\n";
+                std::cout << "It's time for currency exchange!\n";
+                std::cout << "You can exchange EUR to: 1. PLN, 2. USD\n";
                 std::cin >> currencyToExchange;
                 switch (currencyToExchange) {
                     case 1: {
                         double newValue = pln.exchangerFromEURToPLN(eurAmount);
-                        std::cout << "Transakcja pomyslna! Twoje PLN to: " << newValue << std::endl;
-                        std::cout << "Dziekujemy za skorzystanie z naszych uslug!";
+                        std::cout << "Your PLN:" << newValue << std::endl;
+                        std::cout << "Thank you for using our services!";
                         break;
                     }
                     case 2: {
                         double newValue = dollars.exchangerFromEURtoUSD(eurAmount);
-                        std::cout << "Transakcja pomyslna! Twoje EUR to: " << newValue << std::endl;
-                        std::cout << "Dziekujemy za skorzystanie z naszych uslug!";
+                        std::cout << "Your EUR: " << newValue << std::endl;
+                        std::cout << "Thank you for using our services!";
                         break;
                     }
                     default: {
-                        throw std::invalid_argument("Nie mamy takiej opcji w naszej ofercie. Zapraszamy innym razem!");
+                        throw std::invalid_argument("We don't have such an option. See you next time!");
                     }
                 }
                 break;
             }
             default: {
-                throw std::invalid_argument("Nie badz oszustem! Wychodzisz!");
+                throw std::invalid_argument("A fraud! A fraud!");
             }
         }
     }

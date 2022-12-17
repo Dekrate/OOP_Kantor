@@ -19,7 +19,7 @@ public:
 
     std::string info() override {
         std::ostringstream oss;
-        oss << "Możesz wymienić USD na PLN za: " << fromUSDtoPLN << ", Euro na PLN za: "<< fromEurToPLN;
+        oss << "You can exchange USD to PLN for: " << fromUSDtoPLN << ", Euro to PLN for: "<< fromEurToPLN;
         return oss.str();
     }
 

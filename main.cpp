@@ -7,7 +7,6 @@
 #include <limits>
 
 int main() {
-    setlocale(LC_CTYPE, "Polish");
     double fromEURToPLN;
     double fromUSDToPLN;
     double fromPLNToEuro;
@@ -15,19 +14,17 @@ int main() {
     double fromPLNToUSD;
     double fromEURToUSD;
 
-    std::cout << "Konfigurowanie walut. Dla symulacji, laskawie pozwalamy na wprowadzenie wlasnych kursow\n";
-    std::cout << "Dla lepszego doswiadczenia, polecam sprawdzic kursy w internecie.\n";
-    std::cout << "Wybierz wlasciwe dane, bowiem na nich bedzie opieal sie caly program!\n";
-    std::cout << "Zeby nie przedluzac, wpisz prosze dwie wartosci oddzielone za pomoca spacji"
-                 "- najpierw dla zlotowek - z euro na zlotowki i z"
-                 "dolarow na zlotowki - kazdy pojedynczo i w osobnej linii.\n";
+    std::cout << "Configuring currencies. For better simulation, you can easily press exchange rates.\n";
+    std::cout << "If you want to immerse better, please check them on the internet.\n";
+    std::cout << "Put two values separated by space - first for PLNs: from EUR to PLN and from USD to PLN"
+                 "Every input must be in separate line!\n";
     try {
         std::cin >> fromEURToPLN;
         while((std::cin.fail())||(fromEURToPLN<=1))
         {
             std::cin.clear();
             std::cin.ignore( std::numeric_limits < std::streamsize >::max(), '\n' );
-            std::cout << "Nie wprowadzono liczby lub jest nieprawidlowa. Sprobuj ponownie: ";
+            std::cout << "You didn't input proper value. Try again: ";
             std::cin >> fromEURToPLN;
         }
         std::cin >> fromUSDToPLN;
@@ -35,17 +32,17 @@ int main() {
         {
             std::cin.clear();
             std::cin.ignore( std::numeric_limits < std::streamsize >::max(), '\n' );
-            std::cout << "Nie wprowadzono liczby lub jest nieprawidlowa. Sprobuj ponownie: ";
+            std::cout << "You didn't input proper value. Try again: ";
             std::cin >> fromUSDToPLN;
         }
         PLNExchange plnExchange(fromEURToPLN, fromUSDToPLN);
-        std::cout << "Doskonale! Teraz czas na cos grubego - euraski. Najpierw z PLN na Euro, a potem z USD na Euro.\n";
+        std::cout << "Great! Now it's time for Euro - firstly from PLN to Euro, then from USD to Euro.\n";
         std::cin >> fromPLNToEuro;
         while((std::cin.fail())||(fromPLNToEuro<=0))
         {
             std::cin.clear();
             std::cin.ignore( std::numeric_limits < std::streamsize >::max(), '\n' );
-            std::cout << "Nie wprowadzono liczby lub jest nieprawidlowa. Sprobuj ponownie: ";
+            std::cout << "You didn't input proper value. Try again: ";
             std::cin >> fromPLNToEuro;
         }
         std::cin >> fromUSDToEuro;
@@ -53,25 +50,17 @@ int main() {
         {
             std::cin.clear();
             std::cin.ignore( std::numeric_limits < std::streamsize >::max(), '\n' );
-            std::cout << "Nie wprowadzono liczby lub jest nieprawidlowa. Sprobuj ponownie: ";
+            std::cout << "You didn't input proper value. Try again: ";
             std::cin >> fromUSDToEuro;
         }
-//        cin>>y;
-//        while((cin.fail())||(y<1))
-//        {
-//            cin.clear();
-//            std::cin.ignore( std::numeric_limits < std::streamsize >::max(), '\n' );
-//            cout << "Nie wprowadzono liczby. Sprobuj ponownie: ";
-//            cin >> y;
-//        }
         EuroExchange euroExchange(fromPLNToEuro, fromUSDToEuro);
-        std::cout << "Na koniec gwozdz programu - dolarki! Na poczatek z PLN na USD, potem z EUR na USD\n";
+        std::cout << "And finally - dollars! First of all, press from PLN to USD, then from EUR to USD \n";
         std::cin >> fromPLNToUSD;
         while((std::cin.fail())||(fromPLNToUSD<=0))
         {
             std::cin.clear();
             std::cin.ignore( std::numeric_limits < std::streamsize >::max(), '\n' );
-            std::cout << "Nie wprowadzono liczby. Sprobuj ponownie: ";
+            std::cout << "You didn't input proper value. Try again: ";
             std::cin >> fromPLNToUSD;
         }
         std::cin >> fromEURToUSD;
@@ -79,7 +68,7 @@ int main() {
         {
             std::cin.clear();
             std::cin.ignore( std::numeric_limits < std::streamsize >::max(), '\n' );
-            std::cout << "Nie wprowadzono liczby. Sprobuj ponownie: ";
+            std::cout << "You didn't input proper value. Try again: ";
             std::cin >> fromEURToUSD;
         }
         DollarsExchange dollarsExchange(fromPLNToUSD, fromEURToUSD);
@@ -89,8 +78,6 @@ int main() {
         } catch (std::invalid_argument& e) {
             std::cout << e.what();
         }
-
-
     } catch (std::invalid_argument& e) {
         std::cout << e.what() << std::endl;
     }
